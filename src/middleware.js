@@ -6,10 +6,7 @@ import { NextResponse } from "next/server";
 export async function middleware(req){
     const token = await getToken({req,secret:process.env.NEXTAUTH_SECRET});
 
-    console.log("token", token);
-
-
-    if(req.nextUrl.pathname === '/user-auth' && token){
+        if(req.nextUrl.pathname === '/user-auth' && token){
         return NextResponse.redirect(new URL('/',req.url));
     }
 
